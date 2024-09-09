@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pagina de Vídeos</title>
 
 </head>
 <body>
     <h1>Página de vídeos</h1>
+
+    <h4>forEach Playlist</h4>
+
+    <%= videos %>
+
+    <% if (!playlist) { %>
+        <p><%= playlist %></p>
+    <% } %>
+
+    <% playlist.forEach((videos) => { %>
+        - <%= videos.Playlist %> <br>
+        - <%= videos.qtdVideos %> <br><br>
+   <% }) %> 
+   
+
 </body>
 </html>

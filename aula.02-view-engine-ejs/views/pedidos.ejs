@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pedidos</title>
+</head>
+<body>
+    <h1>Pedidos</h1>
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <h4>ForEach sem tabela</h4>
+
+    <% pedidos.forEach((pedido) => { %>
+        - <%= pedido.produto %> <br>
+        R$ <%= pedido.valor %> <br><br>
+   <% }) %>
+
+   <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <h4>forEach com tabela</h4>
+    
+    <table border="1">
+        <tr>
+            <th width="150px">Produto:</th>
+            <th>Preço</th>
+        </tr>
+        <% pedidos.forEach((pedido) => { %>
+        <tr>
+            <td><%= pedido.produto %></td>
+            <td><%= pedido.valor %></td>
+        </tr>
+          <%  }) %>
+    </table>
+
+</body>
+</html>

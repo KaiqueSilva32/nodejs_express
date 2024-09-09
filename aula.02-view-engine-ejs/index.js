@@ -13,13 +13,35 @@ app.get("/", (req, res) => {
 
 // ROTA PERFIL
 app.get("/perfil/:nome?", (req, res) => {
-  res.render("perfil");
+  const perfil = req.params.perfil;
+  const nome = req.params.nome;
+  res.render("perfil", {
+    perfil: perfil,
+    nome: nome,
+  });
 });
 
 // ROTA DE VÍDEOS
 
-app.get("/videos", (req, res) => {
-  res.render("videos");
+app.get("/video/:playlist?", (req, res) => {
+  const videos = req.params.videos;
+  const playlist = [{
+    Playlist: "Musicas",
+    qtdVideos: "6 vídeos",
+  },
+  {
+    Playlist: "Videos de comédia",
+    qtdVideos: "10 vídeos",
+  },
+  {
+    Playlist: "Videos de terror",
+    qtdVideos: "2 vídeos",
+  },
+];
+  res.render("videos", {
+    videos: videos,
+    playlist: playlist,
+  });
 });
 
 // ROTA DE PRODUTOS
@@ -37,11 +59,39 @@ app.get("/produtos/:produto?", (req, res) => {
   res.render("produtos");
 });
 
+// ROTA PEDIDOS
+app.get("/pedidos", (req, res) => {
+  // ARRAY DE OBJETOS COM OS PEDIDOS
+  const pedidos = [
+    {
+      produto: "Celular",
+      valor: 3000,
+    },
+    {
+      produto: "Computador",
+      valor: 4000,
+    },
+    {
+      produto: "Tablet",
+      valor: 2000,
+    },
+    {
+      produto: "Notebook",
+      valor: 3800,
+    },
+  ];
+  res.render("pedidos", {
+    // ENVIANDO O ARRAY DE OBJETOS PARA A PÁGINA
+    pedidos: pedidos,
+  });
+});
+
 // Iniciando o servidor na porta 8080
-app.listen(8080, (error) => {
+const port = 8080;
+app.listen(port, (error) => {
   if (error) {
     console.log(`Ocorreu um erro: ${error}`);
   } else {
-    console.log("Servidor iniciado com sucesso!");
+    console.log(`Servidor iniciado com sucesso em: http://localhost:${port}`);
   }
 });
