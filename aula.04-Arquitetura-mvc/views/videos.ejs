@@ -1,0 +1,19 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+    <h1>Página de vídeos</h1>
+
+    <h4>forEach Playlist</h4>
+
+    <%= videos %>
+
+    <% if (!playlist) { %>
+        <p><%= playlist %></p>
+    <% } %>
+
+    <% playlist.forEach((videos) => { %>
+        - <%= videos.Playlist %> <br>
+        - <%= videos.qtdVideos %> <br><br>
+   <% }) %> 
+   
+
+   <%- include ('partials/footer.ejs') %>
